@@ -152,8 +152,8 @@ RUN apt-get -yqq update && apt-get -yqq install git curl wget zip unzip \
 
 # Install Symfony Requirements Checker - https://github.com/symfony/requirements-checker/tree/master/src
 
-COPY --from=requirements-checker "/composer/vendor/" "/usr/local/composer/vendor/"
-ENV PATH /usr/local/composer/vendor/bin:${PATH}
+COPY --from=requirements-checker "/composer/vendor/" "/vendor/"
+ENV PATH /vendor/bin:${PATH}
 
 # Install Blackfire - https://blackfire.io/docs/integrations/docker
 
