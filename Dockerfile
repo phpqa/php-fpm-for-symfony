@@ -1,6 +1,6 @@
 # Set defaults
 
-ARG BASE_IMAGE="php:7.1-fpm"
+ARG BASE_IMAGE="php:7.2-fpm"
 ARG PACKAGIST_NAME="symfony/symfony"
 ARG PHPQA_NAME="php-fpm-for-symfony"
 ARG VERSION="4.0.11"
@@ -152,8 +152,8 @@ RUN apt-get -yqq update && apt-get -yqq install git curl wget zip unzip \
 
 # Install Symfony Requirements Checker - https://github.com/symfony/requirements-checker/tree/master/src
 
-COPY --from=requirements-checker "/composer/vendor/" "/vendor/"
-ENV PATH /vendor/bin:${PATH}
+COPY --from=requirements-checker "/composer/" "/composer/"
+ENV PATH /composer/vendor/bin:${PATH}
 
 # Install Blackfire - https://blackfire.io/docs/integrations/docker
 
